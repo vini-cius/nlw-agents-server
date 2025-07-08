@@ -51,7 +51,7 @@ Projeto desenvolvido durante a Next Level Week (NLW) da Rocketseat para criar um
 5.  **Executando as Migrações:**
 
     ```bash
-    pnpm db:push
+    npx drizzle-kit migrate
     ```
 
 6.  **Seed do Banco de Dados (opcional):**
