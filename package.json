@@ -6,6 +6,9 @@
     "dev": "node --env-file=.env --experimental-strip-types --no-warnings --watch src/http/server.ts",
     "start": "node --env-file=.env --experimental-strip-types --no-warnings src/http/server.ts",
     "lint": "eslint src/*.ts --fix",
+    "db:generate": "npx drizzle-kit generate",
+    "db:migrate": "npx drizzle-kit migrate",
+    "db:studio": "npx drizzle-kit studio",
     "db:seed": "node --env-file=.env --experimental-strip-types --no-warnings src/db/seed.ts"
   },
   "dependencies": {

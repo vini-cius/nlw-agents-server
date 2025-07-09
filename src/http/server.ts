@@ -13,6 +13,9 @@ import {
 import { env } from '../env.ts'
 import { errorHandler } from './error-handler.ts'
 import { getRooms } from './routes/get-rooms.ts'
+import { createRoom } from './routes/create-room.ts'
+import { getRoomQuestions } from './routes/get-room-questions.ts'
+import { createQuestion } from './routes/create-question.ts'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
@@ -50,7 +53,6 @@ app.register(fastifySwagger, {
 app.register(fastifySwaggerUI, {
   routePrefix: '/docs',
   uiConfig: {
-    docExpansion: 'none',
     deepLinking: false,
     filter: true,
   },
@@ -60,5 +62,8 @@ app.register(fastifySwaggerUI, {
 })
 
 app.register(getRooms)
+app.register(createRoom)
+app.register(getRoomQuestions)
+app.register(createQuestion)
 
 app.listen({ port: env.SERVER_PORT })
