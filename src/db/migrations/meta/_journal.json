@@ -15,6 +15,20 @@
       "when": 1752090982210,
       "tag": "0001_last_toxin",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1752105755286,
+      "tag": "0002_daffy_gamma_corps",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1752108301346,
+      "tag": "0003_friendly_warbound",
+      "breakpoints": true
     }
   ]
 }

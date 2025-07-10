@@ -1,0 +1,1 @@
+ALTER TABLE "audio_chunks" DROP COLUMN "question";

@@ -2,6 +2,7 @@ import fastifyCors from '@fastify/cors'
 import fastifyHelmet from '@fastify/helmet'
 import fastifySwagger from '@fastify/swagger'
 import fastifySwaggerUI from '@fastify/swagger-ui'
+import { fastifyMultipart } from '@fastify/multipart'
 import { fastify } from 'fastify'
 import {
   jsonSchemaTransform,
@@ -16,12 +17,15 @@ import { getRooms } from './routes/get-rooms.ts'
 import { createRoom } from './routes/create-room.ts'
 import { getRoomQuestions } from './routes/get-room-questions.ts'
 import { createQuestion } from './routes/create-question.ts'
+import { uploadAudio } from './routes/upload-audio.ts'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
 app.register(fastifyCors, {
   origin: 'http://localhost:5173',
 })
+
+app.register(fastifyMultipart)
 
 app.register(fastifyHelmet)
 
@@ -65,5 +69,6 @@ app.register(getRooms)
 app.register(createRoom)
 app.register(getRoomQuestions)
 app.register(createQuestion)
+app.register(uploadAudio)
 
 app.listen({ port: env.SERVER_PORT })
