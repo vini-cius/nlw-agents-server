@@ -17,14 +17,12 @@ export function getRoomQuestions(app: FastifyInstance) {
           roomId: z.string(),
         }),
         response: {
-          200: z.object({
-            questions: z.array(z.object({
-              id: z.string(),
-              question: z.string(),
-              answer: z.string().nullable(),
-              createdAt: z.date(),
-            })),
-          })
+          200: z.array(z.object({
+            id: z.string(),
+            question: z.string(),
+            answer: z.string().nullable(),
+            createdAt: z.date(),
+          })),
         },
       },
     },
@@ -37,13 +35,11 @@ export function getRoomQuestions(app: FastifyInstance) {
         answer: schema.questions.answer,
         createdAt: schema.questions.createdAt
       })
-      .from(schema.questions)
-      .where(eq(schema.questions.roomId, roomId))
-      .orderBy(desc(questions.createdAt));
+        .from(schema.questions)
+        .where(eq(schema.questions.roomId, roomId))
+        .orderBy(desc(questions.createdAt));
 
-      return {
-        questions: result,
-      };
+      return result
     }
   );
 }
